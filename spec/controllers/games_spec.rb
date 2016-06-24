@@ -112,30 +112,30 @@ RSpec.describe GamesController do
     # end
   end
 
-  context 'when not authenticated' do
-    before(:each) do
-      request.env['HTTP_AUTHORIZATION'] = nil
-    end
-
-    describe 'POST create' do
-      it 'is not successful' do
-        post :create, game: game_params
-        expect(response).not_to be_successful
-      end
-    end
-
-    describe 'PATCH update' do
-      it 'is not successful' do
-        patch :update, id: game.id
-        expect(response).not_to be_successful
-      end
-    end
-
-    # describe 'DELETE destroy' do
-    #   it 'is not successful' do
-    #     delete :destroy, id: game.id
-    #     expect(response).not_to be_successful
-    #   end
-    # end
-  end
+  # context 'when not authenticated' do
+  #   before(:each) do
+  #     request.env['HTTP_AUTHORIZATION'] = nil
+  #   end
+  #
+  #   describe 'POST create' do
+  #     it 'is not successful' do
+  #       post :create, game: game_params
+  #       expect(response).not_to be_successful
+  #     end
+  #   end
+  #
+  #   describe 'PATCH update' do
+  #     it 'is not successful' do
+  #       patch :update, id: game.id
+  #       expect(response).not_to be_successful
+  #     end
+  #   end
+  #
+  #   # describe 'DELETE destroy' do
+  #   #   it 'is not successful' do
+  #   #     delete :destroy, id: game.id
+  #   #     expect(response).not_to be_successful
+  #   #   end
+  #   # end
+  # end
 end
