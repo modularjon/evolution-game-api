@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :child_taxons, except: [:new, :edit]
   resources :parent_taxons, except: [:new, :edit]
   resources :games, except: [:new, :edit]
   resources :examples, except: [:new, :edit]
