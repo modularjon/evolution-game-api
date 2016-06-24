@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'Games API' do
   def game_params
-    {}
+    { game_solved: true }
   end
 
   def games
@@ -27,7 +27,7 @@ RSpec.describe 'Games API' do
 
   before(:all) do
     User.create!(user_params)
-    Game.create!(game_params)
+    Game.create!
   end
 
   after(:all) do

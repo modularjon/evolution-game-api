@@ -91,11 +91,16 @@ RSpec.describe GamesController do
         expect(response).to be_successful
       end
 
-      it 'renders a JSON response' do
-        game_response = JSON.parse(response.body)
-        expect(game_response).not_to be_nil
+      it 'renders no response body' do
+        expect(response.body).to be_empty
       end
     end
+    #
+    #   it 'renders a JSON response' do
+    #     game_response = JSON.parse(response.body)
+    #     expect(game_response).not_to be_nil
+    #   end
+    # end
 
     # describe 'DELETE destroy' do
     #   it 'is successful and returns an empty response' do

@@ -18,7 +18,7 @@ class GamesController < ApplicationController
   # POST /games
   # POST /games.json
   def create
-    @game = Game.new(game_params)
+    @game = Game.new
 
     if @game.save
       render json: @game, status: :created, location: @game
@@ -49,11 +49,11 @@ class GamesController < ApplicationController
 
   private
 
-    def set_game
-      @game = Game.find(params[:id])
-    end
+  def set_game
+    @game = Game.find(params[:id])
+  end
 
-    def game_params
-      params[:game]
-    end
+  def game_params
+    params.require(:game).permit(:game_solved)
+  end
 end
