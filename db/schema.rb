@@ -11,10 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160624140905) do
+ActiveRecord::Schema.define(version: 20160624141555) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "child_taxons", force: :cascade do |t|
+    t.string   "taxon_name"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.integer  "parent_taxon_id"
+  end
+
+  add_index "child_taxons", ["parent_taxon_id"], name: "index_child_taxons_on_parent_taxon_id", using: :btree
 
   create_table "examples", force: :cascade do |t|
     t.text     "text",       null: false
@@ -53,6 +62,7 @@ ActiveRecord::Schema.define(version: 20160624140905) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["token"], name: "index_users_on_token", unique: true, using: :btree
 
+  add_foreign_key "child_taxons", "parent_taxons"
   add_foreign_key "examples", "users"
   add_foreign_key "games", "parent_taxons"
   add_foreign_key "games", "users"
