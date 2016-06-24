@@ -1,3 +1,3 @@
 class ParentTaxonSerializer < ActiveModel::Serializer
-  attributes :id, :taxon_name
+  attributes :id, :taxon_name, :child_taxons
 end
