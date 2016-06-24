@@ -1,6 +1,6 @@
 class GamesController < ApplicationController
   before_action :set_game, only: [:show, :update, :destroy]
-
+  before_action :authenticate
   # GET /games
   # GET /games.json
   def index
@@ -42,11 +42,11 @@ class GamesController < ApplicationController
 
   # DELETE /games/1
   # DELETE /games/1.json
-  def destroy
-    @game.destroy
-
-    head :no_content
-  end
+  # def destroy
+  #   @game.destroy
+  #
+  #   head :no_content
+  # end
 
   private
 
