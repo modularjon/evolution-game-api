@@ -21,6 +21,7 @@ class GamesController < ApplicationController
     @game = Game.new
 
     if @game.save
+      current_user.games << @game
       render json: @game, status: :created, location: @game
     else
       render json: @game.errors, status: :unprocessable_entity
