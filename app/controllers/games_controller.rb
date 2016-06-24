@@ -1,6 +1,5 @@
-class GamesController < ApplicationController
+class GamesController < ProtectedController
   before_action :set_game, only: [:show, :update, :destroy]
-  before_action :authenticate
   # GET /games
   # GET /games.json
   def index
