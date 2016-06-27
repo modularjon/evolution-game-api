@@ -1,4 +1,4 @@
-class GamesController < ApplicationController #ProtectedController
+class GamesController < ProtectedController
   before_action :set_game, only: [:show, :update, :destroy]
   # GET /games
   # GET /games.json
@@ -17,7 +17,7 @@ class GamesController < ApplicationController #ProtectedController
   # POST /games
   # POST /games.json
   def create
-    @game = Game.new(parent_taxon_id: rand(ParentTaxon.all.length))
+    @game = Game.new(parent_taxon_id: 1 + rand(ParentTaxon.all.length))
 
     if @game.save
       current_user.games << @game
