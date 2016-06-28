@@ -51,7 +51,7 @@ end
   mammal.child_taxons << child
 end
 
-%w(ostrich, finch, duck, hawk).each do |name|
+%w(ostrich finch duck hawk).each do |name|
   taxon_name = "#{name}"
   next if ChildTaxon.exists? taxon_name: taxon_name
   child = ChildTaxon.create(taxon_name: taxon_name)
