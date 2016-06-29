@@ -3,7 +3,7 @@ class GamesController < ProtectedController
   # GET /games
   # GET /games.json
   def index
-    @games = Game.all
+    @games = Game.where(user_id: current_user.id)
 
     render json: @games
   end
