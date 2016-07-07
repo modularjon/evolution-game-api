@@ -41,11 +41,11 @@ class GamesController < ProtectedController
 
   # DELETE /games/1
   # DELETE /games/1.json
-  # def destroy
-  #   @game.destroy
-  #
-  #   head :no_content
-  # end
+  def destroy
+    @game.destroy
+
+    head :no_content
+  end
 
   private
 
